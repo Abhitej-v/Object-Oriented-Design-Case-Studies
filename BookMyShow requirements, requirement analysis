@@ -1,0 +1,37 @@
+Note: These aren’t requirements I came up with I was working on this design from the past two days so just copied the same requirements. Even if I start writing them, they won’t be much different from these as I was already worked on this design. 
+
+Our ticket booking service should meet the following requirements:
+1.	It should be able to list the cities where affiliate Theatres are located.
+2.	Each Theatre can have multiple halls and each hall can run one movie show at a time.
+3.	Each Movie will have multiple shows.
+4.	Customers should be able to search movies by their title, language, genre, release date, and city name.
+5.	Once the customer selects a movie, the service should display the theatres running that movie and its available shows.
+6.	The customer should be able to select a show at a particular theatre and book their tickets.
+7.	The service should show the customer the seating arrangement of the movie hall. The customer should be able to select multiple seats according to their preference.
+8.	The customer should be able to distinguish between available seats and booked ones.
+9.	The system should send notifications whenever there is a new movie, as well as when a booking is made or cancelled.
+10.	Customers of our system should be able to pay with credit cards or cash.
+11.	The system should ensure that no two customers can reserve the same seat.
+12.	Customers should be able to add a discount coupon to their payment.
+
+My analysis of the above-mentioned requirements:
+1.	List those cities of the affiliated theatres on the app
+2.	A movie theatre “has a” number of movie halls.
+3.	Movie will have multiple shows, there will be a time attribute for any given movie and also a particular movie hall which has all the seats.
+4.	It’s a combination of all three Movie + movie theatre + show time
+5.	To implement using various strategies by name, genre etc..., so we can use factory pattern for getting search strategy, or use method overloading or create separate methods for each search type.
+6.	To get a movie from list of movies -> To select a movie theatre from list of movie theatre of a movie -> to select a show among the list of show with various timings.
+7.	Seating arrangement of a movie hall. Use of two-dimensional Boolean array to indicate the seating of the movie hall
+8.	Be able to select multiple seats and to be able to reserve them if they are available.
+9.	To be able to distinguish between available ones and booked ones -> job of front end, back end has to simply indicate it using a Boolean variable.
+10.	The system shall have list of customers(subscribers) to whom the system will be sending notification if a new movie is released.
+11.	Notify the customer of booking if its booking status enum becomes “confirmed” or “cancelled”. The system “observes” Ticket.
+12.	Credit card or cash both shall be implemented by inheriting from a common interface and using command pattern. It also follows the dependency inversion principle
+13.	No two customers should be able to book the same seat. How to achieve concurrency? What else shall be applied apart from singleton pattern?
+14.	Passing a coupon as a parameter to payBill method. PaymentInfo class will take care of reducing the price to be paid.
+15.	The catalog shall have HashMap<City,<HashMap<Movie, Theatre>> . when customer asks for a theatre of a movie. It should search the map first with his City attribute then it will get another HashMap in which it should get list of theatres that movie is being run.
+
+There are three main actors here:
+1.	Admin: block/ unblock user, cancel show
+2.	Customer: search movie, select theatre, select show, select seats, and be able to book tickets
+3.	System: send notifications

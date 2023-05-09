@@ -64,7 +64,7 @@ Depending upon the state of the stateMangaer the operations behaviour will vary.
 
 3. To perform a transaction.
 
-![](C:\Users\vorug\Downloads\IMG_20230508_100648.jpg)
+![](https://github.com/Abhitej-v/Real-World-Object-Oriented-Projects/blob/main/ATM/IMG_20230508_100648.jpg)
 
 
 

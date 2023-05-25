@@ -40,7 +40,7 @@ The main actors of our system are:
 
 5. Notification Manager: to send notifications about the reservation status.
 
-![](C:\Drive%20C2\Job%20search\System%20design\Projects\Resturant%20Management%20System\Use%20Case%20Diagram.jpg)
+![](https://github.com/Abhitej-v/Real-World-Object-Oriented-Projects/blob/main/Restaurant%20Management%20System/Use%20Case%20Diagram.jpg)
 
 
 

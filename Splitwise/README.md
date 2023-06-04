@@ -12,21 +12,14 @@ refer the below link for requirements and test cases of this design
 
 ## Class responsibilities:
 
-SplitStrategyManager: responsible for choosing the bill splitting strategy based on the user input of split format.
+1. SplitStrategyManager: responsible for choosing the bill splitting strategy based on the user input of split format.
+2. SplitManager: To get the split strategy from  SplitStrategyManager and trigger API call on the strategy to split the bill.
+3. UserManager: Has all the users that are created. It is responsible for triggering the API's of diplayLedger in user class. Method overloading is used for show() functionality to display balance of all user or display balance of single user.
+4. User : User "has a" ledger. User is mainly responsible for updating its ledger and performing operation on its ledger.
+5. Ledger: Unlike conventional ledger the ledger object in this design doesn't have anything like a debit or credit column. It has a Map that stores the user and the corresponding balance with that user. If the value is negative then we have to pay to the user. if the value is positive then he user pays us. read and write operations of this Map.
+6. SplitStrategy: it's an interface which is implemented by PercentSplitStrategy, EqualSplitStrategy, ExactSplitStrategy. This interface is responsible for distributeExpense implementation. depending upon the type of split format that strategy is chosen and the ledger of users is updated. The validation criterion is different for different strategy hence the isValid method is private and specific to the respective strategies.
+7. ExpenseMetaData: Contains information about the expense.
 
-SplitManager: To get the split strategy from  SplitStrategyManager and trigger API call on the strategy to split the bill.
-
-UserManager: Has all the users that are created. It is responsible for triggering the API's of diplayLedger in user class. Method overloading is used for show() functionality to display balance of all user or display balance of single user.
-
-User : User "has a" ledger. User is mainly responsible for updating its ledger and performing operation on its ledger.
-
-Ledger: Unlike conventional ledger the ledger object in this design doesn't have anything like a debit or credit column. It has a Map that stores the user and the corresponding balance with that user. If the value is negative then we have to pay to the user. if the value is positive then he user pays us. read and write operations of this Map.
-
-SplitStrategy: it's an interface which is implemented by PercentSplitStrategy, EqualSplitStrategy, ExactSplitStrategy. This interface is responsible for distributeExpense implementation. depending upon the type of split format that strategy is chosen and the ledger of users is updated. The validation criterion is different for different strategy hence the isValid method is private and specific to the respective strategies.
-
-ExpenseMetaData: Contains information about the expense.
-
-## 
 
 ## Design, Code and testing walkthrough:
 

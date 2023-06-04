@@ -34,7 +34,7 @@ Gdrive Link for the video: https://drive.google.com/file/d/1-MMQSV_JqTySG0EHu9zg
 
 Note: The design pattern I used is strategy design pattern. At run time depending upon the input the split bill logic varies. So due to that reasoning I stated it as strategy design pattern but it also very similar to factory design pattern as well. Objects are created like how they are created in simple factory pattern. Regardless of the object that's created the distributeExpense responsibility is delegated to that object.
 
-
+Console output download link: [console_output.pdf](https://github.com/Abhitej-v/Real-World-Object-Oriented-Projects/files/11646125/console_output.pdf)
 
 Linkdin: https://www.linkedin.com/in/abhitej-voruganti-596a181b2/
 

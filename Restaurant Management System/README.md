@@ -42,6 +42,8 @@ The main actors of our system are:
 
 ![Use Case Diagram](https://github.com/Abhitej-v/Real-World-Object-Oriented-Projects/assets/111651833/b208fcf1-c2d4-4ffb-9932-c9c4ded8d60d)
 
+## UML class diagram
+![UML Restaurant Management System](https://github.com/Abhitej-v/Real-World-Object-Oriented-Projects/assets/111651833/7ba95f1f-01c0-4377-97b2-226a27b9ccc0)
 
 
 ## Command Pattern

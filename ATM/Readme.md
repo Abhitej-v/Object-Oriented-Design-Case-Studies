@@ -46,6 +46,8 @@
 
 7. Communication/Network Infrastructure: it is assumed that the ATM has a communication infrastructure to communicate with the bank upon any transaction or activity. This means there are two JVM's one in the ATM and one in the bank server. 
 
+## UML class diagram
+![UML Design ATM_page-0001](https://github.com/Abhitej-v/Real-World-Object-Oriented-Projects/assets/111651833/04802313-7b7a-4028-80ff-b63fb9325438)
 ## State Pattern
 
 Use if state pattern is helpful when there are multiple states in a design and the behaviour of operations in each state is different. Here there are three states

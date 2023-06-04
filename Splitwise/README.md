@@ -6,7 +6,9 @@ refer the below link for requirements and test cases of this design
 
 [Design Splitwise | Machine Coding Round Questions (SDE I/II)](https://workat.tech/machine-coding/practice/splitwise-problem-0kp2yneec2q2)
 
-## 
+## UML class diagram:
+![UML Splitwise](https://github.com/Abhitej-v/Real-World-Object-Oriented-Projects/assets/111651833/42769444-14bb-4e84-bfbc-0ffb41b907dc)
+
 
 ## Class responsibilities:
 

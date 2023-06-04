@@ -64,7 +64,8 @@ Depending upon the state of the stateMangaer the operations behaviour will vary.
 
 3. To perform a transaction.
 
-![](https://github.com/Abhitej-v/Real-World-Object-Oriented-Projects/blob/main/ATM/IMG_20230508_100648.jpg)
+
+![IMG_20230508_100648](https://github.com/Abhitej-v/Real-World-Object-Oriented-Projects/assets/111651833/1e177243-d68f-4006-98b9-fad2b9ceefeb)
 
 
 

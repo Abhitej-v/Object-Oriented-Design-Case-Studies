@@ -12,7 +12,7 @@ refer the below link for requirements and test cases of this design
 
 ## Class responsibilities:
 
-1. SplitStrategyManager: responsible for choosing the bill splitting strategy based on the user input of split format.
+1. SplitStrategyManager: Responsible for creating the bill spliting strategy object based on the user input of split format (Factory design pattern).
 2. SplitManager: To get the split strategy from  SplitStrategyManager and trigger API call on the strategy to split the bill.
 3. UserManager: Has all the users that are created. It is responsible for triggering the API's of diplayLedger in user class. Method overloading is used for show() functionality to display balance of all user or display balance of single user.
 4. User : User "has a" ledger. User is mainly responsible for updating its ledger and performing operation on its ledger.
@@ -25,7 +25,7 @@ refer the below link for requirements and test cases of this design
 
 Gdrive Link for the video: https://drive.google.com/file/d/1-MMQSV_JqTySG0EHu9zgOmkl89suA8YF/view?usp=sharing
 
-Note: The design pattern I used is strategy design pattern. At run time depending upon the input the split bill logic varies. So due to that reasoning I stated it as strategy design pattern but it also very similar to factory design pattern as well. Objects are created like how they are created in simple factory pattern. Regardless of the object that's created the distributeExpense responsibility is delegated to that object.
+Note: The design pattern I mentioned in the video is strategy design pattern. At run time depending upon the input the split bill logic varies. So due to that reasoning I stated it as strategy design pattern but it more of a factory design pattern. Both are similar in many ways but as it involves creating objects at run time it would be definitely come under a factory design pattern. Objects are created like how they are created in simple factory pattern. Regardless of the object that's being created the distributeExpense responsibility is delegated to that object.
 
 Console output download link: [console_output.pdf](https://github.com/Abhitej-v/Real-World-Object-Oriented-Projects/files/11646125/console_output.pdf)
 

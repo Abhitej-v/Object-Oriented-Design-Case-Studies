@@ -54,7 +54,7 @@ The command pattern is used in two instances
 
 2. Preparing the food: All the menu items implement "DishExecutable". We trigger execute on a menuItem object which holds the logic of that particular menuItem's recipe and preparation steps to be executed.
 
-3. By coding to and interface instead of concrete classes dependency inversion principle is demonstrated.
+3. By coding to an interface instead of concrete classes dependency inversion principle is demonstrated.
 
 
 

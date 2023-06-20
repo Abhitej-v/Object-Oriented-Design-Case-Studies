@@ -12,7 +12,8 @@ public class Admin extends Person {
     }
 
     public boolean cancelShow(Show show) {
-        return show.cancelShow();
+        ShowManager showManager=ShowManager.getShowMgrInstance();
+        return showManager.cancelShow(show);
     }
 
     public boolean addTheatre(Theatre theatre) {

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Theatre {
     ArrayList<Show> activeShows;
     ArrayList<Movie> runningMovies;
+    ArrayList<MovieHall> movieHalls;
     String TheatreName;
     Address address;
 
@@ -20,10 +21,11 @@ public class Theatre {
         // check if this the only show for the movie which is running in the theatre then remove it from runningMovies as well
     }
 
-    public ArrayList<Show> getAvailableShowsInTheatre(Movie movie) {
+    public ArrayList<String> getAvailableShowsInTheatre(Movie movie) {
         // go through the activeShows list and return all those movies that match the input parameter
         // or can maintain a movieShowsMap as well
-        return new ArrayList<Show>();
+        // The list is going to contain the Show Id
+        return new ArrayList<String>();
     }
 
     public boolean hasMovie(Movie movie) {

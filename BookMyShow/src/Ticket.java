@@ -2,6 +2,8 @@ package OODPracticeExample.MovieTicketBooking;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+import java.util.Scanner;
 
 public class Ticket {
     Customer customer;
@@ -19,11 +21,6 @@ public class Ticket {
         this.coupon = coupon;
     }
 
-    public Ticket(Show show, ArrayList<ShowSeat> showSeats) {
-        this.show = show;
-        this.bookedShowSeats = showSeats;
-    }
-
     public BookingStatus getBookingStatus() {
         return bookingStatus;
     }
@@ -32,26 +29,30 @@ public class Ticket {
         this.bookingStatus = bookingStatus;
         if (bookingStatus == BookingStatus.Confirmed) {
             notifySystem();
-            notifyShow();
+            notifyShowMgrAddTicket();
+            this.show.decLeftOutSeats(bookedShowSeats.size());
         } else if (bookingStatus == BookingStatus.Cancelled) {
             notifySystem();
-            notifyDecShow();
+            notifyShowMgrRemoveTicket();
+            this.show.incLeftOutSeats(bookedShowSeats.size());
         }
     }
 
-    private void notifyDecShow() {
-        this.show.removeTicketOfShow(this, bookedShowSeats.size());
-    }
 
-    public void notifySystem() {
+
+    private void notifySystem() {
         SystemC systemC = SystemC.getSysUniqueInstance();
         systemC.notifyBooking(customer, bookingStatus);
     }
 
-    public void notifyShow() {
-        this.show.addTicketsOfShow(this, bookedShowSeats.size());
+    private void notifyShowMgrAddTicket() {
+        ShowManager showManager=ShowManager.getShowMgrInstance();
+        showManager.addTicketForShow(this.show,this);
     }
-
+    public void notifyShowMgrRemoveTicket() {
+        ShowManager showManager=ShowManager.getShowMgrInstance();
+        showManager.removeTicketForShow(this.show,this);
+    }
     public double getPrice() {
         // iterate through bookedShowSeats list and sum up the price of all the seats, by calling seat.getPrice()
         // return the final price. include the logic of coupon discount as well.
@@ -59,16 +60,8 @@ public class Ticket {
         return totalPrice;
     }
 
-    public boolean payBill(IPayment iPayment) {
-        paymentInfo = new PaymentInfo(iPayment);
-        // use of command pattern following dependency inversion principle
-        if (paymentInfo.payBill(iPayment, this.totalPrice)) {
-            setBookingStatus(BookingStatus.Confirmed);
-            return true;
-        } else {
-            setBookingStatus(BookingStatus.Failed);
-            return false;
-        }
+    public void setPaymentInfo(PaymentInfo paymentInfo) {
+        this.paymentInfo = paymentInfo;
     }
 
     public boolean cancel() {
@@ -79,18 +72,12 @@ public class Ticket {
             ack = paymentInfo.refund();
             if (ack) {
                 setBookingStatus(BookingStatus.Cancelled);
-                freeUpBookedSeats();
+                ShowManager showManager=ShowManager.getShowMgrInstance();
+                showManager.changeSeatStatus(ShowSeatStatus.Available,bookedShowSeats);
             }
             return ack;
         } else {
             return false;
         }
     }
-
-    private void freeUpBookedSeats() {
-        for (ShowSeat showSeat : bookedShowSeats) {
-            showSeat.setShowSeatStatus(ShowSeatStatus.Available);
-        }
-    }
-
 }

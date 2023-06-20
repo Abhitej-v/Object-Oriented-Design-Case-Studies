@@ -35,7 +35,11 @@ The three main actors of the system are
 
 3. System: send notifications
 
+![BookMyShow use case diagram](https://github.com/Abhitej-v/Real-World-Object-Oriented-Projects/assets/111651833/f3871e99-5902-4e80-a4ca-eebdc024c1cd)
+
+
 ## UML class diagram:
+![UML of BookMyShow](https://github.com/Abhitej-v/Real-World-Object-Oriented-Projects/assets/111651833/70d83f80-e719-48ab-9fd0-d34f6f8bb131)
 
 ## Responsibilities of various classes:
 

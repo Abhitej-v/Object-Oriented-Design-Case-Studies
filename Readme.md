@@ -16,4 +16,5 @@ Here you will find some my complex and interesting real-world projects. Any cons
 
 6. ***Design Patterns***: Applied many relevant design patterns at places where they fit in exactly for those design challenges.
 
+7. ***IntelliJ Idea:*** Used IntelliJ Idea environment for all these projects
 
